@@ -39,6 +39,7 @@ Robots need to calculate joint angles (alpha, beta, gamma) to reach a target pos
 
 ```text
 Inverse Kinematics Calculator/  <-- root folder inside MATLAB general folder
+├── app/                      <-- app gui goes here
 ├── data/                     <-- AI model and dataset here
 ├── figures/                  <-- graphs get put in here
 ├── src/                      <-- functions go here
