@@ -35,20 +35,23 @@ Robots need to calculate joint angles (alpha, beta, gamma) to reach a target pos
     I trained an AI to learn the kinematics from data.
     * *Result:* It gives us the best of both worlds. It has the speed of the Formula (~13µs) but learns from data like the General Purpose method, so we don't have to derive complex equations by hand.
 
-## File Structure
+## Recomended File Structure
 
 ```text
-├── src/
-│   ├── models/           # Neural Network prediction logic predictNN.m
-│   ├── kinematics/       # Analytic ik_analytic.m and Numeric ik_numeric.m solvers
-│   ├── utils/            # Helper functions robot generation, geometry
-│   └── app/              # Legacy UI components
-├── data/                 # Generated datasets and trained models net.mat)
-├── figures/              # Benchmark plots and screenshots
-├── run_all.m             # Main entry point: Pipeline orchestration
-├── trainNN.m             # Deep Learning training script with LR scheduling
-├── IKCompareApp.m        # Interactive GUI Application
-└── README.md             # Project documentation
+Inverse Kinematics Calculator/  <-- root folder inside MATLAB general folder
+├── data/                     <-- AI model and dataset here
+├── figures/                  <-- graphs get put in here
+├── src/                      <-- functions go here
+│   ├── benchmark.m
+│   ├── fk_point.m
+│   ├── genDataset.m
+│   ├── ik_analytic.m
+│   ├── ik_numeric.m
+│   ├── makeRobot.m
+│   ├── metrics.m
+│   ├── predictNN.m
+│   └── trainNN.m
+└── run_all.m                 <-- the only file in the root
 ```
 ## Usage
 
