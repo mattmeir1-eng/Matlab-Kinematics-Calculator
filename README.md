@@ -35,6 +35,49 @@ Robots need to calculate joint angles (alpha, beta, gamma) to reach a target pos
     I trained an AI to learn the kinematics from data.
     * *Result:* It gives us the best of both worlds. It has the speed of the Formula (~13µs) but learns from data like the General Purpose method, so we don't have to derive complex equations by hand.
 
+## File Structure
+
+```text
+├── src/
+│   ├── models/           # Neural Network prediction logic predictNN.m
+│   ├── kinematics/       # Analytic ik_analytic.m and Numeric ik_numeric.m solvers
+│   ├── utils/            # Helper functions robot generation, geometry
+│   └── app/              # Legacy UI components
+├── data/                 # Generated datasets and trained models net.mat)
+├── figures/              # Benchmark plots and screenshots
+├── run_all.m             # Main entry point: Pipeline orchestration
+├── trainNN.m             # Deep Learning training script with LR scheduling
+├── IKCompareApp.m        # Interactive GUI Application
+└── README.md             # Project documentation
+```
+## Usage
+
+### Prerequisites
+* MATLAB R2021b or newer
+* Deep Learning Toolbox
+* Robotics System Toolbox
+
+### Running the Project
+
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/yourusername/3dof-ik-benchmarking.git](https://github.com/yourusername/3dof-ik-benchmarking.git)
+    cd 3dof-ik-benchmarking
+    ```
+
+2.  **Run the pipeline**
+    Add all the folders to path using right click menu or terminal. Execute the main script in MATLAB to generate data, train the network, and run benchmarks.
+    ```matlab
+    run_all
+    ```
+    *Output: Generates `data/net.mat` and saves benchmark plots to `figures/`.*
+
+3.  **Launch the Dashboard**
+    Start the interactive GUI to visualize results.
+    ```matlab
+    IKCompareApp
+    ```
+
 ## Project Features
 * **Hybrid Neural Network:** A 3-layer MLP with structure as foilows, 512-256-128 neurons trained on 100,000 dataset points.
 * **Custom Data Generation:** A script that creates valid training data using Forward Kinematics to ensure math is actually possible.
