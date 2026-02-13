@@ -1,0 +1,16 @@
+#MATLAB autosaves and temporary files
+*.asv
+*.autosave
+*.slxc
+
+#large binary data files (we don't want these in Git)
+*.mat
+*.fig
+
+#generated folders (Your code creates these)
+data/
+figures/
+
+#OS Junk
+.DS_Store
+Thumbs.db
